@@ -1,5 +1,7 @@
 # Profile API
 
+✨ **Live Deployment:** [profile-api.up.railway.app](https://profile-api.up.railway.app/api/profiles)
+
 A fast, fully-typed backend service that takes a name, enriches it with data from three separate external APIs simultaneously, and stores the normalized profile perfectly in MongoDB. 
 
 Built with modern backend architecture practices including full Separation of Concerns.

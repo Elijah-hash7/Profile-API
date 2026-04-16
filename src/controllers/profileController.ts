@@ -67,6 +67,5 @@ export const deleteProfile = async (req: Request, res: Response) => {
     const deleted = await deleteProfileById(req.params.id as string);
     if (!deleted) return res.status(404).json({ status: 'error', message: 'Profile not found' });
 
-    // Changing from 200 to 204 No Content per the rubric!
     return res.status(204).send();
 };

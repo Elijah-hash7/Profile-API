@@ -7,17 +7,24 @@ export const createProfile = async (req: Request, res: Response) => {
     try {
         const { name } = req.body;
 
-        if (name === undefined || name.trim() === '') {
+        if (name === undefined || name === null) {
             return res.status(400).json({
                 status: 'error',
                 message: 'name is required'
             });
         }
-
+        
         if (typeof name !== 'string') {
             return res.status(422).json({
                 status: 'error',
                 message: 'name must be a string'
+            });
+        }
+
+        if (name.trim() === '') {
+            return res.status(400).json({
+                status: 'error',
+                message: 'name is required'
             });
         }
 

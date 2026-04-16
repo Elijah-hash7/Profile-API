@@ -13,7 +13,15 @@ const profileSchema = new Schema({
     country_id: { type: String, required: true },
     country_probability: { type: Number, required: true }
 }, {
-    timestamps: { createdAt: 'created_at', updatedAt: false } // auto-handles ISO 8601
+    timestamps: { createdAt: 'created_at', updatedAt: false }
+});
+
+profileSchema.set('toJSON', {
+    transform: (document: any, returnedObject: any) => {
+        returnedObject.id = returnedObject._id.toString();
+        delete returnedObject._id;
+        delete returnedObject.__v;
+    }
 });
 
 export const ProfileModel = mongoose.model<Profile>('Profile', profileSchema);
